@@ -49,8 +49,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final int _counter = 0;
-  
   get https => null;
 
 
@@ -65,67 +63,41 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Center(
       child: 
-        Column(
+        Column( 
           children:[
-          CachedNetworkImage(
-          imageUrl: 'https://www.linkpicture.com/q/rafiki.png',
-          placeholder: (context, url) => const CircularProgressIndicator(),
-          errorWidget: (context, url, error) => const Icon(Icons.error),
-        ),
-        ], 
-          children:
-        [Column(
-            // Column is also a layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Invoke "debug painting" (press "p" in the console, choose the
-            // "Toggle Debug Paint" action from the Flutter Inspector in Android
-            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-            // to see the wireframe for each widget.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text('Hi <XXX>'),
-              const Text('Hôm nay, bạn có 1 ván Xì Dách đang chơi cùng Duy Anh, a Toàn, Huệ...., bạn muốn tiếp tục hay bắt đầu ván mới?'),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
+            CachedNetworkImage(
+              imageUrl: 'https://www.linkpicture.com/q/rafiki.png',
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-              Row(children: const<Widget>[ 
+            const Text('Hi <XXX>'),
+            const Text('Hôm nay, bạn có 1 ván Xì Dách đang chơi cùng Duy Anh, a Toàn, Huệ...., bạn muốn tiếp tục hay bắt đầu ván mới?'),
+            Row(
+              children: const<Widget>[ 
                 Expanded(
                 child: SizedBox(
                 width: 159.5,
-                height: 32.0,
+                height: 50.0,
                 child: Card(child: Text('Tiếp tục')),
               )
                 ),
               Expanded(
                 child: SizedBox(
                 width: 159.5,
-                height: 32.0,
-                Card(child: Text('Ván mới')),
+                height: 50.0,
+                child: Card(child: Text('Ván mới')),
               )
         ),
       ],
     )
     ]
-    )
-    ]
-    )
-    )
-    );
+        )
+          ),
+          ); 
 }
 }
-
 class OutlinedCardExample extends StatelessWidget {
     const OutlinedCardExample({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -135,7 +107,7 @@ class OutlinedCardExample extends StatelessWidget {
           side: BorderSide(
             color: Theme.of(context).colorScheme.outline,
           ),
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          borderRadius: const BorderRadius.all(Radius.circular(4)),
         ),
         child: const SizedBox(
           width: 327,
