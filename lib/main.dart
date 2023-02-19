@@ -51,6 +51,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   get https => null;
 
+  get child => null;
 
   @override
   Widget build(BuildContext context) {
@@ -61,60 +62,38 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      body: Center(
-      child: 
-        Column( 
-          children:[
-            CachedNetworkImage(
-              imageUrl: 'https://www.linkpicture.com/q/rafiki.png',
-              placeholder: (context, url) => const CircularProgressIndicator(),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
+        body: Container(
+            padding: const EdgeInsets.all(12),
+            child: Column(children: [
+              CachedNetworkImage(
+                imageUrl: 'https://www.linkpicture.com/q/rafiki.png',
+                placeholder: (context, url) =>
+                    const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-            const Text('Hi <XXX>'),
-            const Text('Hôm nay, bạn có 1 ván Xì Dách đang chơi cùng Duy Anh, a Toàn, Huệ...., bạn muốn tiếp tục hay bắt đầu ván mới?'),
-            Row(
-              children: const<Widget>[ 
-                Expanded(
-                child: SizedBox(
-                width: 159.5,
-                height: 50.0,
-                child: Card(child: Text('Tiếp tục')),
-              )
+              const Text('Hi player name'),
+              const Text(
+                  'Hôm nay, bạn có 1 ván Xì Dách đang chơi cùng Duy Anh, a Toàn, Huệ...., bạn muốn tiếp tục hay bắt đầu ván mới?'),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle first button press
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  child: const Text('Ván mới'),
                 ),
-              Expanded(
-                child: SizedBox(
-                width: 159.5,
-                height: 50.0,
-                child: Card(child: Text('Ván mới')),
-              )
-        ),
-      ],
-    )
-    ]
-        )
-          ),
-          ); 
-}
-}
-class OutlinedCardExample extends StatelessWidget {
-    const OutlinedCardExample({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            color: Theme.of(context).colorScheme.outline,
-          ),
-          borderRadius: const BorderRadius.all(Radius.circular(4)),
-        ),
-        child: const SizedBox(
-          width: 327,
-          height: 80,
-          child: Center(child: Text('Outlined Card')),
-        ),
-      ),
-    );
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle second button press
+                  },
+                  child: const Text('Tiếp tục'),
+                ),
+              ]),
+            ])));
   }
 }
